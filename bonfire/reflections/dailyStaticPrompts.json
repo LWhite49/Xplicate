@@ -1,0 +1,35 @@
+{
+	"physical": [
+		"Did you engage in any form of physical activity today? What was it?",
+		"Throughout the day, were you energized or tired? Why do you think that was?",
+		"How much sleep did you get last night? How do you think that affected your day?",
+		"Did your body give you any signals today? How did you respond to them?",
+		"What types of food did you eat today? How did your body react to them?",
+		"How could you have taken better care of your physical health today?"
+	],
+	"mental": [
+		"What was the strongest emotion you felt today? How did you process it?",
+		"What was the most rewarding part of your day? Why do you think it felt so rewarding?",
+		"Did you encounter any stressors throughout your day? How can you better cope with them?",
+		"Did you learn anything new today? How can you apply that knowledge in the future?",
+		"What are you looking forward to tomorrow? How can you prepare to make the most of it?",
+		"What are you grateful for today? How can you express that gratitude?",
+		"How could you have taken better care of your mental health today?"
+	],
+	"social": [
+		"Did you find yourself missing anyone in your life today? Did you reach out to them?",
+		"Did you have any meaningful conversations today? What made them meaningful?",
+		"Were you in any uncomfortable social situations today? How did you handle them?",
+		"Did you find yourself feeling lonely today? How did you cope with that feeling?",
+		"Did you spend time with any loved ones today? How will you remember that experience?",
+		"How could you have taken better care of your social wellbeing today?"
+	],
+	"recreation": [
+		"Out of 10, how would you rate your overall enjoyment of today? Why that rating?",
+		"Did you engage in any activities that brought you joy today? What were they?",
+		"Did you discover any new music, television, or books today? What made them stand out?",
+		"How was the weather today? Did it affect your plans or mood in any way?",
+		"How well did you balance work and play today? Would you change anything?",
+		"If you would have had an extra hour today, how would you have spent it?"
+	]
+}
