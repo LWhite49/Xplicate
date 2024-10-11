@@ -1,6 +1,7 @@
 // Import core components to build the app
 import { StyleSheet, Text, View } from "react-native";
 
+import { styles } from "../styles/homeStyle";
 export const Home = () => {
 	return (
 		<View style={styles.container}>
@@ -8,12 +9,3 @@ export const Home = () => {
 		</View>
 	);
 };
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: "#fff",
-		alignItems: "center",
-		justifyContent: "center",
-	},
-});

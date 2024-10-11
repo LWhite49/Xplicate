@@ -1,3 +1,6 @@
+// Import hooks from React
+import { createContext } from "react";
+
 // Import pages for individual screens
 import { Home } from "./pages/Home";
 import { Init } from "./pages/Init";
@@ -19,16 +22,25 @@ import {
 	printStorage,
 } from "./client-storage/mmkvstorage.js";
 
+// Create and export context for App
+export const AppContext = createContext();
 export default function App() {
 	// Flag used to choose the first screen to display, based on stored initialization data
 	const startScreenFlag = storageHasKey("ideology");
 	return (
-		<NavigationContainer>
-			<Stack.Navigator
-				initialRouteName={startScreenFlag ? "Home" : "Init"}>
-				<Stack.Screen name="Init" component={Init} />
-				<Stack.Screen name="Home" component={Home} />
-			</Stack.Navigator>
-		</NavigationContainer>
+		<AppContext.Provider
+			value={{
+				saveStorage,
+				loadStorage,
+			}}>
+			<NavigationContainer>
+				<Stack.Navigator
+					initialRouteName={startScreenFlag ? "Home" : "Init"}
+					screenOptions={{ headerShown: false }}>
+					<Stack.Screen name="Init" component={Init} />
+					<Stack.Screen name="Home" component={Home} />
+				</Stack.Navigator>
+			</NavigationContainer>
+		</AppContext.Provider>
 	);
 }
