@@ -12,6 +12,9 @@ import * as SQLite from "expo-sqlite";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
+// Import static prompt JSON
+import dailyPrompts from "./reflections/dailyStaticPrompts.json";
+
 const Stack = createStackNavigator();
 // Import custom storage methods utilizing MMKV to manage user configuration
 import {
@@ -32,6 +35,7 @@ export default function App() {
 			value={{
 				saveStorage,
 				loadStorage,
+				dailyPrompts,
 			}}>
 			<NavigationContainer>
 				<Stack.Navigator

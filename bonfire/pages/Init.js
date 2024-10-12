@@ -2,8 +2,12 @@
 import { useState, useContext } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { AppContext } from "../App";
+
 // Import core components to build the app
 import { Text, View, TouchableOpacity } from "react-native";
+
+// Import ConfigSequence, which will render the appropriate configuration step based on the index
+import { ConfigSequence } from "../config-sequence/ConfigSequence";
 
 // Import styles for the Init page
 import { styles } from "../styles/initStyle";
@@ -11,14 +15,11 @@ import { styles } from "../styles/initStyle";
 // Init page will have a series of components that establish the user's configuration
 // There will be an increment button, who, on the final increment, will navigate to the Home page
 export const Init = () => {
-	// Source from the AppContext
-	const { saveStorage } = useContext(AppContext);
-
 	// Create navigator with useNavigation hook
 	const navigation = useNavigation();
 
 	// Store total number of components needed to initialize the app
-	const initComponentCount = 6;
+	const initComponentCount = 8;
 
 	// Create state to index the current component being displayed
 	const [initComponentIndex, setInitComponentIndex] = useState(0);
@@ -36,6 +37,7 @@ export const Init = () => {
 
 	return (
 		<View style={styles.init}>
+			<ConfigSequence index={initComponentIndex} />
 			<TouchableOpacity
 				style={styles.initNext}
 				onPress={incrementInitComponentIndex}>
