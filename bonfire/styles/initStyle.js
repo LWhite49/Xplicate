@@ -4,7 +4,7 @@ export const styles = StyleSheet.create({
 	init: {
 		display: "flex",
 		flexDirection: "column",
-		backgroundColor: "#320",
+		backgroundColor: "#4C3507",
 		alignItems: "center",
 	},
 	initNext: {
@@ -15,6 +15,7 @@ export const styles = StyleSheet.create({
 		borderWidth: "1px",
 		borderColor: "#F9E3BE",
 		borderStyle: "solid",
+		marginBottom: 30,
 	},
 	initNextText: {
 		color: "#332200",
