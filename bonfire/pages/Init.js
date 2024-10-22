@@ -26,6 +26,7 @@ export const Init = () => {
 
 	// Create onPress function to increment the index, navigating to Home when == initComponentCount
 	const incrementInitComponentIndex = () => {
+		// Increment index, moving to new component
 		setInitComponentIndex((prev) => {
 			const next = prev + 1;
 			if (next === initComponentCount) {

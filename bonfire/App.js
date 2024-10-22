@@ -1,5 +1,5 @@
 // Import hooks from React
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 // Import pages for individual screens
 import { Home } from "./pages/Home";
@@ -28,6 +28,9 @@ import {
 // Create and export context for App
 export const AppContext = createContext();
 export default function App() {
+	// Initialize username state by sourcing from storage
+	const [username, setUsername] = useState(loadStorage("username") || "");
+
 	// Flag used to choose the first screen to display, based on stored initialization data
 	const startScreenFlag = storageHasKey("ideology");
 	return (
@@ -36,6 +39,8 @@ export default function App() {
 				saveStorage,
 				loadStorage,
 				dailyPrompts,
+				username,
+				setUsername,
 			}}>
 			<NavigationContainer>
 				<Stack.Navigator

@@ -19,7 +19,7 @@ const loadStorage = (key) => {
 	try {
 		if (!storage.contains(key)) {
 			console.error($`No value found for ${key} in storage`);
-			return null;
+			return false;
 		}
 		return JSON.parse(storage.getString(key));
 	} catch (error) {

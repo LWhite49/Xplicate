@@ -3,34 +3,63 @@ import { useState, useContext } from "react";
 import { AppContext } from "../App";
 import { styles } from "../styles/configSequenceStyle";
 // Import core components
-import { Text, View } from "react-native";
+import { Text, View, TextInput } from "react-native";
 
 // ConfigSequence will accept an index state and use a switch statement to render the corresponding configuration step
 export const ConfigSequence = ({ index }) => {
 	// Source from the AppContext
-	const { saveStorage, dailyPrompts } = useContext(AppContext);
+	const { saveStorage, loadStorage, dailyPrompts, username, setUsername } =
+		useContext(AppContext);
+
+	// Initialize local state for focus
+	const [focus, setFocus] = useState(false);
 
 	switch (index) {
 		// Unique - Welcome + Enter Name
 		case 0:
+			saveStorage("username", "");
 			return (
 				<View style={styles.initPage}>
 					<View style={styles.initPageHeader}>
 						<Text style={styles.textHeader}>
-							Let's get started!
+							Welcome to{" "}
+							<Text style={styles.textEmph}>Xplicate!</Text>
 						</Text>{" "}
 					</View>
-					<Text style={styles.textSecondary}>
-						Enter your name below:
+					<Text style={[styles.textHeader, styles.textThird]}>
+						Let's get started with a few questions to personalize
+						your experience.
+					</Text>{" "}
+					<Text style={[styles.textHeader, styles.textSecondary]}>
+						What's your name?
 					</Text>
+					<TextInput
+						style={[
+							styles.textInput,
+							focus && styles.textInputFocus,
+						]}
+						placeholder="Enter here..."
+						onFocus={() => {
+							setFocus(true);
+						}}
+						onBlur={() => {
+							setFocus(false);
+						}}
+						onChangeText={(e) => {
+							saveStorage("username", e);
+							setUsername(e);
+						}}
+					/>
 				</View>
 			);
 		// Reusable Component - Physical
 		case 1:
 			return (
-				<Text style={styles.textHeader}>
-					Physical - {dailyPrompts.physical[0]}
-				</Text>
+				<View style={styles.initPage}>
+					<View style={styles.initPageHeader}>
+						<Text style={styles.textHeader}>So {username}...</Text>
+					</View>
+				</View>
 			);
 		// Reusable Component - Mental
 		case 2:
